@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Auth from "./components/Auth";
@@ -45,7 +45,9 @@ function App() {
 
   // ✅ useEffect fixed
   useEffect(() => {
-    if (isLoggedIn) fetchData();
+    if (isLoggedIn){
+       fetchData();
+    }
   }, [isLoggedIn]);
 
   // ✅ EDIT
