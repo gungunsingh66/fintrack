@@ -1,0 +1,372 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.app-title {
+  text-align: center;
+  font-size: 34px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 5px;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+  color: #cbd5f5;
+  margin-bottom: 20px;
+}
+/* Card */
+.container {
+  width: 90%;
+  max-width: 520px;
+  padding: 26px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  color: #fff;
+  overflow: hidden; /* 🔥 prevents overflow */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.main-card {
+  width: 400px;
+  padding: 25px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Balance */
+.balance {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 18px;
+}
+
+.positive { color: #22c55e; }
+.negative { color: #ef4444; }
+
+.income-box p {
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.expense-box p {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* Summary */
+.summary {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.box {
+  flex: 1;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  background: rgba(255,255,255,0.05);;
+}
+
+.box h4 {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.box p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.income-box { color: #22c55e; }
+.expense-box { color: #ef4444; }
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+  margin: 25px 0;
+}
+
+/* Chart */
+.chart-container {
+  width: 260px;
+  height: 260px;
+  margin: 20px auto;
+}
+
+.chart-box {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+}
+
+/* Form */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* 🔥 IMPORTANT FIX */
+form input,
+form select {
+  width: 100%;
+  min-width: 0;
+}
+
+input, select {
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+/* Button */
+form button {
+  grid-column: span 2;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(99,102,241,0.5);
+}
+
+.transactions {
+  margin-top: 20px;
+}
+
+/* List */
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  background: rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.item span {
+  font-size: 15px;
+}
+
+.expense { color: #f87171; }
+.income { color: #4ade80; }
+
+/* Delete */
+.delete-btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  cursor: pointer;
+}
+
+/* 📱 MOBILE FIX (merged cleanly) */
+@media (max-width: 600px) {
+
+  .summary {
+    flex-direction: column;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form button {
+    grid-column: span 1;
+  }
+
+  .chart-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+  }
+}
+option {
+  color: black;
+  background: white;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.logout-container {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 350px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.3),
+    0 0 20px rgba(139, 92, 246, 0.2);
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card input {
+  background: rgba(255,255,255,0.12);
+  transition: 0.3s;
+}
+
+.login-card input:focus {
+  border: 1px solid #8b5cf6;
+  background: rgba(255,255,255,0.18);
+}
+
+.login-card button {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.toggle-text {
+  color: #cbd5f5;
+}
+
+.toggle-text span {
+  color: #8b5cf6;
+  font-weight: 500;
+}
+
+.login-card button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field span {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #cbd5f5;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.password-field span:hover {
+  color: #8b5cf6;
+}
