@@ -993,3 +993,56 @@ option {
     width: 100%;
   }
 }
+/* FIX LOGIN + LANDING OVERFLOW */
+@media (max-width: 600px) {
+
+  .login-card,
+  .hero-card,
+  .main-card {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-right {
+    display: none;
+  }
+
+  .landing-container {
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* FIX CHART OVERFLOW */
+.analytics-card {
+  overflow-x: auto;
+}
+
+/* FIX DATE INPUT */
+input[type="date"] {
+  color: white;
+}
+
+/* FIX TRANSACTION HEADER */
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* FIX REPORT TABLE MOBILE */
+.report-table {
+  overflow-x: auto;
+}

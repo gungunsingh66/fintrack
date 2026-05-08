@@ -19,7 +19,7 @@ function MonthlyChart({ data }) {
 
       <div className="chart-container">
 
-        <ResponsiveContainer width="100%" height={320}>
+        <ResponsiveContainer width="100%" height={300}>
 
           <LineChart data={data}>
 
