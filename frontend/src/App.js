@@ -145,7 +145,7 @@ const fetchData = useCallback(async () => {
     try {
       await axios.delete(`${API}/${id}`, getAuthConfig());
       toast.success("Transaction deleted");
-      fetchData();
+      await fetchData();
     } catch (err) {
       console.log(err);
       toast.error("Delete failed");
