@@ -63,7 +63,7 @@ const fetchData = useCallback(async () => {
   // useEffect fixed
   useEffect(() => {
     if (isLoggedIn) {
-      await fetchData();
+      fetchData();
     }
   }, [isLoggedIn, fetchData]);
 
