@@ -25,7 +25,7 @@ function App() {
   const [category, setCategory] = useState("Food");
   const [loading, setLoading] = useState(true);
 
-  const API = "http://localhost:5000/api/transactions";
+  const API = "/api/transactions";
   
   //helper for token header
   const getAuthConfig = () => {
@@ -63,7 +63,7 @@ const fetchData = useCallback(async () => {
   // useEffect fixed
   useEffect(() => {
     if (isLoggedIn) {
-      fetchData();
+      await fetchData();
     }
   }, [isLoggedIn, fetchData]);
 
@@ -134,7 +134,9 @@ const fetchData = useCallback(async () => {
       await fetchData();
     } catch (err) {
       console.log(err);
-      alert(err.response?.data || "Something went wrong");
+      toast.error(
+        err.response?.data || "Something went wrong"
+      );
     }
   };
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { FaEye, FaEyeSlash, FaArrowLeft } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 function Auth({ setIsLoggedIn, setShowAuth }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -12,8 +13,8 @@ function Auth({ setIsLoggedIn, setShowAuth }) {
     e.preventDefault();
 
     const url = isLogin
-      ? "http://localhost:5000/api/auth/login"
-      : "http://localhost:5000/api/auth/signup";
+      ? "/api/auth/login"
+      : "/api/auth/signup"
 
     try {
       const res = await axios.post(url, { email, password });
@@ -22,11 +23,13 @@ function Auth({ setIsLoggedIn, setShowAuth }) {
         localStorage.setItem("token", res.data.token);
         setIsLoggedIn(true);
       } else {
-        alert("Signup successful");
+        toast.success("Signup successful");
         setIsLogin(true);
       }
     } catch (err) {
-      alert(err.response?.data || "Something went wrong");
+      toast.error(
+        err.response?.data || "Something went wrong"
+      );
     }
   };
 
