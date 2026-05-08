@@ -23,12 +23,9 @@ app.use(
 );
 
 // frontend route handling
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile(
-    path.join(
-      __dirname,
-      "../frontend/build/index.html"
-    )
+    path.join(__dirname, "../frontend/build/index.html")
   );
 });
 
