@@ -15,8 +15,15 @@ body {
   font-family: "Inter", "Segoe UI", sans-serif;
   background: #0f172a;
   min-height: 100vh;
+
   overflow-x: hidden;
-  overscroll-behavior: none;
+  overflow-y: auto;
+}
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
 }
 
 .app-title {
@@ -252,10 +259,17 @@ option {
 
 
 .login-container {
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px 14px 40px;
+
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .login-card {
@@ -380,15 +394,19 @@ option {
 .landing-page {
   min-height: 100vh;
   width: 100%;
+  padding: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  background: #08112f;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .hero-card {
-  width: 90%;
-  max-width: 720px;
-  padding: 50px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 40px;
   border-radius: 24px;
   background: rgba(255,255,255,0.08);
   backdrop-filter: blur(14px);
@@ -400,6 +418,8 @@ option {
 .hero-title {
   font-size: 56px;
   margin-bottom: 10px;
+  line-height: 1;
+  word-break: break-word;
   background: linear-gradient(90deg,#6366f1,#a855f7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -409,6 +429,7 @@ option {
   font-size: 18px;
   color: #cbd5f5;
   margin-bottom: 30px;
+  line-height: 1.5;
 }
 
 .hero-buttons {
@@ -451,13 +472,12 @@ option {
 
 /* Landing Navbar */
 .landing-navbar {
-  width: 90%;
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
-  top: 30px;
+  margin-bottom: 50px;
 }
 
 .brand-logo {
@@ -486,10 +506,10 @@ option {
 
 /* Footer */
 .landing-footer {
-  position: absolute;
-  bottom: 20px;
+  margin-top: 40px;
   color: #94a3b8;
   font-size: 14px;
+  text-align: center;
 }
 
 .back-home-btn {
@@ -834,28 +854,11 @@ option {
   font-size: 18px;
 }
 
-/* MOBILE */
-@media (max-width: 700px) {
-  .reports-grid {
-    grid-template-columns: 1fr;
-  }
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 
-  .section-title {
-    font-size: 30px;
-  }
-
-  .report-card p {
-    font-size: 28px;
-  }
-
-  .report-table th,
-  .report-table td {
-    padding: 12px;
-    font-size: 14px;
-  }
-}
-
-/* MOBILE RESPONSIVE */
+/* TABLET */
 @media (max-width: 900px) {
 
   .stats-grid {
@@ -863,7 +866,8 @@ option {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .navbar {
+  .navbar,
+  .landing-navbar {
     flex-direction: column;
     gap: 14px;
   }
@@ -873,7 +877,38 @@ option {
   }
 }
 
+
+/* MOBILE */
 @media (max-width: 600px) {
+
+  /* GLOBAL */
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* MAIN CONTAINERS */
+  .container,
+  .landing-page,
+  .landing-container,
+  .main-card,
+  .hero-card,
+  .login-card,
+  .analytics-card,
+  .transactions-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+  }
 
   .container {
     padding: 15px;
@@ -883,6 +918,82 @@ option {
     padding: 18px;
   }
 
+  .landing-page {
+    padding: 14px;
+    align-items: flex-start;
+  }
+
+  /* NAVBAR */
+  .navbar,
+  .landing-navbar {
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 14px;
+    font-size: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* HERO SECTION */
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-right {
+    display: none;
+  }
+
+  .hero-card {
+    padding: 28px 18px;
+    border-radius: 20px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 54px !important;
+    line-height: 1;
+    word-break: break-word;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .hero-buttons button {
+    width: 100%;
+  }
+
+  /* FEATURES */
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    width: 100%;
+  }
+
+  /* STATS */
   .stats-grid {
     gap: 20px;
     grid-template-columns: 1fr !important;
@@ -898,53 +1009,12 @@ option {
     overflow-wrap: anywhere;
   }
 
-  .hero-title {
-    font-size: 40px;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-  }
-
-  .features {
-    grid-template-columns: 1fr;
-  }
-
-  .landing-navbar {
-    flex-direction: column;
-    gap: 14px;
-    top: 18px;
-  }
-
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 18px;
-  }
-
-  .nav-menu {
-    gap: 14px;
-    font-size: 14px;
-  }
-
-  .landing-footer {
-    position: static;
-    margin-top: 25px;
-  }
-
-  .back-home-btn {
-    position: static;
-    margin-bottom: 18px;
-  }
-
+  /* SUMMARY */
   .summary {
     flex-direction: column;
   }
 
+  /* FORMS */
   form {
     grid-template-columns: 1fr;
   }
@@ -953,12 +1023,33 @@ option {
     grid-column: span 1;
   }
 
-  .chart-container {
-    max-width: 220px;
-    height: 220px;
+  input,
+  select,
+  button {
+    width: 100%;
   }
 
+  input[type="date"] {
+    color: white;
+  }
 
+  /* CHARTS */
+  .analytics-card {
+    overflow-x: auto;
+  }
+
+  .chart-container {
+    width: 100% !important;
+    max-width: 260px !important;
+    height: 260px !important;
+    margin: auto;
+  }
+
+  .recharts-wrapper {
+    margin: 0 auto;
+  }
+
+  /* TRANSACTIONS */
   .transaction-item {
     flex-direction: column;
     align-items: center;
@@ -972,6 +1063,15 @@ option {
     gap: 14px;
   }
 
+  .transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* ACTION BUTTONS */
   .actions {
     width: 100%;
     justify-content: center;
@@ -985,6 +1085,8 @@ option {
   .delete-btn {
     align-self: flex-end;
   }
+
+  /* FILTERS */
   .filter-bar {
     flex-direction: column;
   }
@@ -992,57 +1094,144 @@ option {
   .filter-bar select {
     width: 100%;
   }
-}
-/* FIX LOGIN + LANDING OVERFLOW */
-@media (max-width: 600px) {
 
-  .login-card,
-  .hero-card,
-  .main-card {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
+  /* REPORTS */
+  .reports-grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero-section {
+  .section-title {
+    font-size: 30px;
+  }
+
+  .report-card p {
+    font-size: 28px;
+  }
+
+  .report-table {
+    overflow-x: auto;
+  }
+
+  .report-table th,
+  .report-table td {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* FOOTER */
+  .landing-footer {
+    position: static;
+    margin-top: 25px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* BACK BUTTON */
+  .back-home-btn {
+    position: static;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .landing-navbar {
     flex-direction: column;
-    align-items: center;
+    gap: 16px;
     text-align: center;
   }
 
-  .hero-right {
-    display: none;
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
   }
 
-  .landing-container {
+  .hero-card {
+    padding: 28px 18px;
+  }
+
+  .hero-title {
+    font-size: 54px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons button {
+    width: 100%;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+/* LOGIN PAGE MOBILE FIX */
+@media (max-width: 600px) {
+
+  .login-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 14px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     overflow-x: hidden;
   }
 
-  body {
-    overflow-x: hidden;
+  .login-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 28px 18px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
   }
-}
 
-/* FIX CHART OVERFLOW */
-.analytics-card {
-  overflow-x: auto;
-}
+  .auth-brand {
+    font-size: 42px;
+    text-align: center;
+  }
 
-/* FIX DATE INPUT */
-input[type="date"] {
-  color: white;
-}
+  .title {
+    font-size: 42px;
+    line-height: 1.1;
+    text-align: center;
+  }
 
-/* FIX TRANSACTION HEADER */
-.transactions-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+  .auth-subtitle {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
 
-/* FIX REPORT TABLE MOBILE */
-.report-table {
-  overflow-x: auto;
+  .form {
+    width: 100%;
+  }
+
+  .form input,
+  .password-field,
+  .form button {
+    width: 100%;
+  }
+
+  .password-field {
+    display: flex;
+    align-items: center;
+  }
+
+  .back-home-btn {
+    position: static;
+    width: 100%;
+    max-width: 220px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .toggle-text {
+    text-align: center;
+    line-height: 1.5;
+  }
 }
