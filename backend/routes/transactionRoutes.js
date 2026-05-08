@@ -5,13 +5,15 @@ const verifyToken = require("../middleware/auth");
 //create
 router.post("/", verifyToken, async (req, res) => {
   try {
-    const { title, amount, type } = req.body;
+    const { title, amount, type, date, category } = req.body;
 
     const newTransaction = new Transaction({
       title,
       amount,
       type,
-      userId: req.user.id,   // 🔥 ADD THIS LINE
+      date,
+      category,
+      userId: req.user.id,   
     });
 
     const saved = await newTransaction.save();
@@ -27,7 +29,7 @@ router.post("/", verifyToken, async (req, res) => {
 router.get("/", verifyToken, async (req, res) => {
   try {
     const data = await Transaction.find({
-      userId: req.user.id,   // 🔥 FILTER BY USER
+      userId: req.user.id,   
     });
 
     res.json(data);
